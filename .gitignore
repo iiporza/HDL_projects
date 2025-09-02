@@ -1,0 +1,27 @@
+# Vivado generated files
+*.jou
+*.log
+*.str
+*.pb
+*.dcp
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.xpr
+*.xdc
+*.srcs/
+*.gen/
+*.ip/
+*.xise
+*.data/
+*.wdb
+
+# Waveform dumps
+*.vcd
+*.wcfg
+
+# Other
+*.backup*
+*.tmp
