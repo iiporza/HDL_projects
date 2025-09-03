@@ -26,7 +26,7 @@ I am using icarus verilog to simulate quickly on vscode for macOS
 
 brew install icarus-verilog gtkwave
 
-iverilog -g2012 -o sim src/and_gate.sv tb/and_gate_tb.sv
+iverilog -g2012 -o sim src/gates.sv tb/gates_tb.sv
 
 vvp sim
 

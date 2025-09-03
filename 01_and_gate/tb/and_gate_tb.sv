@@ -13,7 +13,6 @@ module and_gate_tb;
 
     initial begin
         
-
         $dumpfile("wave.vcd");   // for waveform viewing
         $dumpvars(0, and_gate_tb);
 

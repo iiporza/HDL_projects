@@ -1,0 +1,134 @@
+#! /opt/homebrew/Cellar/icarus-verilog/12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/va_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/12.0/lib/ivl/v2009.vpi";
+S_0x12d004170 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x12d004310 .scope module, "tb" "tb" 3 2;
+ .timescale -9 -12;
+v0x12d0151f0_0 .var "a", 3 0;
+v0x12d015280_0 .var "b", 3 0;
+v0x12d015310_0 .var "s", 0 0;
+v0x12d0153c0_0 .net "y1", 3 0, L_0x12d015910;  1 drivers
+v0x12d015470_0 .net "y2", 3 0, L_0x12d015a40;  1 drivers
+v0x12d015540_0 .net "y3", 3 0, L_0x12d015af0;  1 drivers
+v0x12d0155f0_0 .net "y4", 3 0, L_0x12d015ca0;  1 drivers
+v0x12d0156a0_0 .net "y5", 3 0, L_0x12d015e30;  1 drivers
+v0x12d015750_0 .net "y6", 3 0, L_0x12d015f60;  1 drivers
+v0x12d015880_0 .net "y7", 3 0, L_0x12d016080;  1 drivers
+S_0x12d004490 .scope module, "dut" "gates" 3 14, 4 3 0, S_0x12d004310;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 4 "y1";
+    .port_info 4 /OUTPUT 4 "y2";
+    .port_info 5 /OUTPUT 4 "y3";
+    .port_info 6 /OUTPUT 4 "y4";
+    .port_info 7 /OUTPUT 4 "y5";
+    .port_info 8 /OUTPUT 4 "y6";
+    .port_info 9 /OUTPUT 4 "y7";
+L_0x12d015910 .functor AND 4, v0x12d0151f0_0, v0x12d015280_0, C4<1111>, C4<1111>;
+L_0x12d015a40 .functor OR 4, v0x12d0151f0_0, v0x12d015280_0, C4<0000>, C4<0000>;
+L_0x12d015af0 .functor XOR 4, v0x12d0151f0_0, v0x12d015280_0, C4<0000>, C4<0000>;
+L_0x12d0159c0 .functor OR 4, v0x12d0151f0_0, v0x12d015280_0, C4<0000>, C4<0000>;
+L_0x12d015ca0 .functor NOT 4, L_0x12d0159c0, C4<0000>, C4<0000>, C4<0000>;
+L_0x12d015dc0 .functor AND 4, v0x12d0151f0_0, v0x12d015280_0, C4<1111>, C4<1111>;
+L_0x12d015e30 .functor NOT 4, L_0x12d015dc0, C4<0000>, C4<0000>, C4<0000>;
+v0x12d004790_0 .net *"_ivl_10", 3 0, L_0x12d015dc0;  1 drivers
+o0x120008040 .functor BUFZ 4, C4<zzzz>; HiZ drive
+; Elide local net with no drivers, v0x12d014840_0 name=_ivl_16
+v0x12d0148e0_0 .net *"_ivl_6", 3 0, L_0x12d0159c0;  1 drivers
+v0x12d014990_0 .net "a", 3 0, v0x12d0151f0_0;  1 drivers
+v0x12d014a40_0 .net "b", 3 0, v0x12d015280_0;  1 drivers
+v0x12d014b30_0 .net "s", 0 0, v0x12d015310_0;  1 drivers
+v0x12d014bd0_0 .net "y1", 3 0, L_0x12d015910;  alias, 1 drivers
+v0x12d014c80_0 .net "y2", 3 0, L_0x12d015a40;  alias, 1 drivers
+v0x12d014d30_0 .net "y3", 3 0, L_0x12d015af0;  alias, 1 drivers
+v0x12d014e40_0 .net "y4", 3 0, L_0x12d015ca0;  alias, 1 drivers
+v0x12d014ef0_0 .net "y5", 3 0, L_0x12d015e30;  alias, 1 drivers
+v0x12d014fa0_0 .net "y6", 3 0, L_0x12d015f60;  alias, 1 drivers
+v0x12d015050_0 .net "y7", 3 0, L_0x12d016080;  alias, 1 drivers
+L_0x12d015f60 .functor MUXZ 4, v0x12d015280_0, v0x12d0151f0_0, v0x12d015310_0, C4<>;
+L_0x12d016080 .functor MUXZ 4, o0x120008040, v0x12d0151f0_0, v0x12d015310_0, C4<>;
+    .scope S_0x12d004310;
+T_0 ;
+    %vpi_call/w 3 25 "$dumpfile", "wave.vcd" {0 0 0};
+    %vpi_call/w 3 26 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x12d004310 {0 0 0};
+    %vpi_call/w 3 28 "$display", "=========START SIMULATION============" {0 0 0};
+    %vpi_call/w 3 29 "$display", "======== INITIALIZING INPUT ======== " {0 0 0};
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x12d0151f0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x12d015280_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x12d015310_0, 0, 1;
+    %delay 10000, 0;
+    %load/vec4 v0x12d0153c0_0;
+    %load/vec4 v0x12d0151f0_0;
+    %load/vec4 v0x12d015280_0;
+    %and;
+    %cmp/e;
+    %jmp/0xz  T_0.0, 6;
+    %jmp T_0.1;
+T_0.0 ;
+    %vpi_call/w 3 38 "$error", "AND fail" {0 0 0};
+T_0.1 ;
+    %load/vec4 v0x12d015470_0;
+    %load/vec4 v0x12d0151f0_0;
+    %load/vec4 v0x12d015280_0;
+    %or;
+    %cmp/e;
+    %jmp/0xz  T_0.2, 6;
+    %jmp T_0.3;
+T_0.2 ;
+    %vpi_call/w 3 39 "$error", "OR fail" {0 0 0};
+T_0.3 ;
+    %load/vec4 v0x12d015540_0;
+    %load/vec4 v0x12d0151f0_0;
+    %load/vec4 v0x12d015280_0;
+    %xor;
+    %cmp/e;
+    %jmp/0xz  T_0.4, 6;
+    %jmp T_0.5;
+T_0.4 ;
+    %vpi_call/w 3 40 "$error", "XOR fail" {0 0 0};
+T_0.5 ;
+    %load/vec4 v0x12d0155f0_0;
+    %load/vec4 v0x12d0151f0_0;
+    %load/vec4 v0x12d015280_0;
+    %or;
+    %inv;
+    %cmp/e;
+    %jmp/0xz  T_0.6, 6;
+    %jmp T_0.7;
+T_0.6 ;
+    %vpi_call/w 3 41 "$error", "NOR fail" {0 0 0};
+T_0.7 ;
+    %load/vec4 v0x12d0156a0_0;
+    %load/vec4 v0x12d0151f0_0;
+    %load/vec4 v0x12d015280_0;
+    %and;
+    %inv;
+    %cmp/e;
+    %jmp/0xz  T_0.8, 6;
+    %jmp T_0.9;
+T_0.8 ;
+    %vpi_call/w 3 42 "$error", "NAND fail" {0 0 0};
+T_0.9 ;
+    %vpi_call/w 3 44 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/gates_tb.sv";
+    "src/gates.sv";
