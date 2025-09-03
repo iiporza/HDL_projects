@@ -1,7 +1,8 @@
 //this code implements a one bit full adder 
+`timescale 1ns/1ps
 
 module full_adder(
-    input logic a,b,cin
+    input logic a,b,cin,
     output logic cout,sum
 );
 
@@ -17,8 +18,9 @@ always_comb
     begin
         p = a ^ b;
         g = a & b;
-        sum = p ^ cin;
-        cout = g|(p & cin);
+        sum = p ^ cin; // a ^ b ^ cin
+        cout = g|(p & cin); // majority(a ,b, cin)
     end
 
 endmodule
+

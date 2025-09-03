@@ -35,9 +35,9 @@ initial begin
     //check the combinatorial logic
 
     #10;
-    assert (y1 === (a & b)) else $error("AND fail");
-    assert (y2 === (a | b)) else $error("OR fail");
-    assert (y3 === (a ^ b)) else $error("XOR fail");
+    assert (y1 === (a & b))  else $error("AND fail");
+    assert (y2 === (a | b))  else $error("OR fail");
+    assert (y3 === (a ^ b))  else $error("XOR fail");
     assert (y4 === ~(a | b)) else $error("NOR fail");
     assert (y5 === ~(a & b)) else $error("NAND fail");
 
