@@ -33,8 +33,8 @@ initial begin
 
     //check with nested loop
     for (int i=0; i<2; i = i+1) begin
-        for (int j=0; j<2; i = j+1) begin
-            for (int k=0; k<2; i = k+1) begin
+        for (int j=0; j<2; j = j+1) begin
+            for (int k=0; k<2; k = k+1) begin
             a=i; b=j; cin=k; #10;
             assert(sum === (a^b^cin)) else $error("%0d%0d%0d sum fail",i,j,k);
             assert(cout === (a & b)|(cin & (a ^ b))) else $error("%0d%0d%0d cout fail",i,j,k);

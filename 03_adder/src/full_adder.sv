@@ -23,4 +23,3 @@ always_comb
     end
 
 endmodule
-
