@@ -12,7 +12,7 @@ DFlipFlop ff0(.clk(clk), .rst(rst), .d(d), .q(state[0]));
 //all of the other stages
 genvar i;
 generate
-    for(i = 1; i < LENGTH; i = i +1) begin : sr_loop
+    for(i = 1; i < LENGTH; i = i + 1) begin : sr_loop
         DFlipFlop ff(
             .clk(clk),
             .rst(rst),
